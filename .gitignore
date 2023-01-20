@@ -1,6 +1,6 @@
 node_modules
+.env
 yarn.lock
 .firebase
 dist
-.env
 .yarn.lock
