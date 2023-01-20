@@ -8,7 +8,7 @@
     "fs": false
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack",
     "build": "cross-env NODE_ENV=production webpack",
     "start": "live-server"
   },
@@ -23,7 +23,11 @@
     "react-router-dom": "^6.6.2",
     "recoil": "^0.7.6",
     "ts-loader": "^9.4.2",
+    "tsconfig-paths-webpack-plugin": "^4.0.0",
     "typescript": "^4.9.4",
     "webpack": "^5.75.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
   }
 }

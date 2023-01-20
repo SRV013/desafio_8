@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
-      "baseUrl": "./src",
-      "target": "ES5",
-      "outDir": "./dist",
-      "esModuleInterop": true,
-      "moduleResolution": "node",
-      "jsx": "react-jsx"
+        "target": "ES5",
+        "baseUrl": "./src",
+        "outDir": "dist",
+        "moduleResolution": "node",
+        "jsx": "react",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
     },
-    "include": ["./src/**/*.tsx", "./src/**/*.ts"]
-  }
+    "include": ["src/**/*.*"]
+}
