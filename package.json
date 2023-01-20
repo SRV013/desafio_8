@@ -4,7 +4,17 @@
   "repository": "git@github.com:SRV013/desafioocho.git",
   "author": "srv013 <srv013@gmail.com>",
   "license": "MIT",
+  "browser": {
+    "fs": false
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "live-server"
+  },
   "dependencies": {
+    "@types/react-dom": "^18.0.10",
+    "cross-env": "^7.0.3",
     "firebase-tools": "^11.21.0",
     "init": "^0.1.2",
     "live-server": "^1.2.2",
@@ -12,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.2",
     "recoil": "^0.7.6",
+    "ts-loader": "^9.4.2",
     "typescript": "^4.9.4",
     "webpack": "^5.75.0"
   }
