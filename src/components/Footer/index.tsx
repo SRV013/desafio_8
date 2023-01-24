@@ -1,11 +1,11 @@
 import React from "react"
-import css from "./footer.css"
-
+import style from "./footer.css"
+console.log(style);
 export function Footer(){
 return (
-    <div className={css["footer-component__container"]}>
-      <img className={css["header-component__logo"]} src="../src/assets/logo.png" />
-        <div className={css["redes"]}>  
+    <div className={style["footer-component__container"]}>
+      <img className={style["header-component__logo"]} src="../src/assets/logo.png" />
+        <div className={style["redes"]}>  
                 <a >Instagram</a>
                 <a >Facebook</a>
                 <a >Github</a>

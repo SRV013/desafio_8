@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./header.css";
+console.log(style);
 
 export function HeaderApp() {
     return (
