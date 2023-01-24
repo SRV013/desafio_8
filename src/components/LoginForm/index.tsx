@@ -10,7 +10,7 @@ class LoginForm extends React.Component<any, any> {
     render() {
         const login = (e) => {
             e.preventDefault();
-            this.props.onSearch(e.target.mail.value);
+//            this.props.onSearch(e.target.mail.value);
         };
         return (
             <form onSubmit={login} className={styles["login__container"]}>
