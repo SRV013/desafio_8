@@ -18,6 +18,7 @@ if (dev) {
 module.exports = {
   entry: "./src/index.tsx",
   watch: dev,
+  stats: 'errors-only',
   module: {
     rules: [
       {
