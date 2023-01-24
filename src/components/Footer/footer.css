@@ -19,7 +19,6 @@
     font-size: 18px;
 }
 .redes a:hover{
-color: rgb(0, 0, 0);
 cursor: pointer;
 text-decoration: underline;
 transform: scale(1.1);
