@@ -6,9 +6,9 @@ import { Footer } from "../footer/index";
 export function Layout() {
     return (
         <>
-            <HeaderApp></HeaderApp>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <HeaderApp />
+            <Outlet />
+            <Footer />
         </>
     );
 }
