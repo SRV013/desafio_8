@@ -1,12 +1,12 @@
 {
     "compilerOptions": {
-        "target": "ES5",
         "baseUrl": "./src",
-        "outDir": "dist",
+        "target": "ESNext",
         "moduleResolution": "node",
-        "jsx": "react",
+        "outDir": "dist",
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true
+        "jsx": "react",
+        
     },
     "include": ["src/**/*.*"]
 }

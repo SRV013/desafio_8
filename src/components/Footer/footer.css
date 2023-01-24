@@ -1,0 +1,26 @@
+.footer-component__container {
+    padding: 30px 70px;
+    display: flex;
+    flex-direction: row;
+    background-color: #f1eebd;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-component__container img {
+    height: 80px;
+    filter:invert(1);
+}
+.redes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    font-size: 18px;
+}
+.redes a:hover{
+color: rgb(0, 0, 0);
+cursor: pointer;
+text-decoration: underline;
+transform: scale(1.1);
+}

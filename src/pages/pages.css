@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.content__title {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.content__container__desciption {
+    font-size: 20px;
+    text-align: center;
+}
