@@ -1,26 +1,24 @@
 {
-  "name": "desafio8",
-  "version": "1.0.0",
+  "name": "desafio_8",
+  "version": "2",
+  "description": "mascotas",
   "repository": "git@github.com:SRV013/desafioocho.git",
-  "author": "srv013 <srv013@gmail.com>",
-  "license": "MIT",
+  "author": "YaMiPc",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack",
+    "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack",
     "start": "live-server"
   },
   "dependencies": {
-    "@types/node": "^18.11.18",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.3",
     "live-server": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.6.2",
+    "react-router-dom": "^6.7.0",
     "recoil": "^0.7.6",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.4.2",
-    "tsconfig-paths-webpack-plugin": "^4.0.0",
     "typescript": "^4.9.4",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
