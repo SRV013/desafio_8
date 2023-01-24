@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import style from "./header.css";
+import style from "./header.css";
 
 export function HeaderApp() {
     return (
-        <div >
-            <a >
+        <div className={style["header-component__container"]}>
+            <a className={style["header-component__logo"]}>
                 <img src="../src/assets/logo.png" />
             </a>
-           <nav >
+           <nav className={style["header-component-nav"]}>
                 <ul>
                     <li>
                         <Link key={"login"} to="/login">
@@ -19,7 +19,7 @@ export function HeaderApp() {
                     <li>Reportes</li>
                 </ul>
             </nav>
-            <div >
+            <div className={style["menu"]}>
                 <div></div>
                 <div></div>
                 <div></div>
