@@ -18,7 +18,9 @@ if (dev) {
 module.exports = {
   entry: "./src/index.tsx",
   watch: dev,
-  stats: 'errors-only',
+  stats: {
+    errorDetails: false,
+  },
   module: {
     rules: [
       {
