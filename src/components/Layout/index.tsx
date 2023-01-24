@@ -4,11 +4,9 @@ import { HeaderApp } from "../header/index";
 import { Footer } from "../footer/index";
 
 export function Layout(){
-return  (
-  <div>
+return <>
     <HeaderApp />
     <Outlet />
     <Footer />
-  </div>
-)
+  </>
 }
