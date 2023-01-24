@@ -5,7 +5,7 @@
   "repository": "git@github.com:SRV013/desafioocho.git",
   "author": "YaMiPc",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack",
     "build": "cross-env NODE_ENV=production webpack",
     "start": "live-server"
   },
