@@ -19,7 +19,7 @@ module.exports = {
   entry: "./src/index.tsx",
   watch: dev,
   stats: {
-    errorDetails: false,
+    errorDetails: true,
   },
   module: {
     rules: [
