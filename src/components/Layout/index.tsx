@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { HeaderApp } from "../header";
-import { Footer } from "../footer";
+import { HeaderApp } from "../Header";
+import { Footer } from "../Footer";
 
 export function Layout() {
     return (
