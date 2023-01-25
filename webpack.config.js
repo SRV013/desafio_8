@@ -1,14 +1,12 @@
 const path = require("path");
 const dev = process.env.NODE_ENV == "development";
 const liveServer = require("live-server");
-
 if (dev) {
   liveServer.start({
     root: "./",
     file: "index.html",
   });
 }
-
 module.exports = {
   entry: "./src/index.tsx",
   watch: dev,
