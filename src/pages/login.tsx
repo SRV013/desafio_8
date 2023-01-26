@@ -13,7 +13,6 @@ const handleSearch = (search)=>{
                 Ingrese su correo electronico !!!
             </p>
             <LoginForm onSearch={handleSearch} />
-            <Comison texto={'Viejo'} man={'man'} />
             <p className={styles["content__container__desciption"]}>¿No tenés cuenta aún? <a href="usuario_nuevo">Crear cuenta</a></p>
         </div>
     );

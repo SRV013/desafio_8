@@ -9,7 +9,13 @@
     font-weight: 700;
     text-align: center;
 }
-
+.content__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 400;
+    gap: 20px;
+}
 .content__container__desciption {
     font-size: 20px;
     text-align: center;

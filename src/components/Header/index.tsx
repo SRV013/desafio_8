@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./header.css";
-console.log(style);
 
 export function HeaderApp() {
+    const [isActive, setActive] = useState(false);
+    const handleToggle = () => {
+        setActive(!isActive);
+
+console.log(style[".active"] ,  style["header-component-nav.active"]);
+         
+    };
+
     return (
         <div className={style["header-component__container"]}>
-            <a className={style["header-component__logo"]}>
+            <Link
+                key={"Home"}
+                to="/"
+                className={style["header-component__logo"]}>
                 <img src="../src/assets/logo.png" />
-            </a>
-           <nav className={style["header-component-nav"]}>
+            </Link>
+            <nav
+                className={
+                    isActive
+                        ? style["header-component-nav__active"]
+                        : style["header-component-nav"]
+                }>
                 <ul>
                     <li>
                         <Link key={"login"} to="/login">
@@ -20,10 +35,16 @@ export function HeaderApp() {
                     <li>Reportes</li>
                 </ul>
             </nav>
-            <div className={style["menu"]}>
+            <div
+                onClick={handleToggle}
+                className={
+                    isActive 
+                        ? style["menu__active"] 
+                        : style["menu"]}>
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
-        </div>);
+        </div>
+    );
 }

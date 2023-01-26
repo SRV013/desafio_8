@@ -1,8 +1,7 @@
 import React from "react"
 import style from "./footer.css"
-console.log(style);
 export function Footer(){
-return (
+ return (
     <div className={style["footer-component__container"]}>
       <img className={style["header-component__logo"]} src="../src/assets/logo.png" />
         <div className={style["redes"]}>  
