@@ -20,3 +20,19 @@
     font-size: 20px;
     text-align: center;
 }
+.content__container__suggestion {
+    font-size: 14px;
+    text-align: center;
+    color: wheat;
+    animation-name: anim;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes anim{
+    0% {color: wheat;}
+    25% {color: #d4b67f;}
+    50% {color: wheat;}
+    75% {color: #d4b67f;}
+    100% {color: wheat}
+ }

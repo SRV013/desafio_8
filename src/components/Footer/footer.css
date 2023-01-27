@@ -10,7 +10,8 @@
     height: 150px;
     /* position: absolute;
     bottom: 5px;
-    left: 0; */
+    left: 0;
+    overflow: hidden; */
 }
 .footer-component__container img {
     height: 80px;
@@ -22,9 +23,11 @@
     align-items: flex-start;
     padding: 20px;
     font-size: 18px;
+    color: #d7ba85;
 }
 .redes a:hover{
 cursor: pointer;
 text-decoration: underline;
 transform: scale(1.1);
+color: #dea948;
 }

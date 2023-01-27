@@ -10,9 +10,10 @@ export function Home() {
             </h1>
             <div className={styles["content__container"]}>
                 <p className={styles["content__container__desciption"]}>
-                    Estas son las mascotas que han sido reportadas cerca de ti.
+                    Ver las mascotas que han sido reportadas cerca de ti.
                 </p>
                 <Button >mascotas perdidas</Button>
+                <p className={styles["content__container__suggestion"]}>haga click para ver ...</p>
             </div>
         </div>
     );
