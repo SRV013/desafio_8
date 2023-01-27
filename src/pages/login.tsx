@@ -1,6 +1,7 @@
 import React from "react";
-import { LoginForm,Comison } from "../components/LoginForm";
+import { LoginForm } from "../components/LoginForm";
 import styles from "./pages.css";
+import { Link } from "react-router-dom";
 
 export function Login() {
 const handleSearch = (search)=>{
@@ -13,7 +14,9 @@ const handleSearch = (search)=>{
                 Ingrese su correo electronico !!!
             </p>
             <LoginForm onSearch={handleSearch} />
-            <p className={styles["content__container__desciption"]}>¿No tenés cuenta aún? <a href="usuario_nuevo">Crear cuenta</a></p>
+            <p className={styles["content__container__desciption"]}>
+                ¿No tenés cuenta aún? <Link to="/user_new">
+                    Crear cuenta</Link></p>
         </div>
     );
 }

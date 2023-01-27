@@ -7,6 +7,7 @@ type props = {
     value?: string
     required?: boolean
     name: string
+    placeholder:string
 }
 
 export function Input(p:props) {
@@ -15,6 +16,7 @@ export function Input(p:props) {
     required={p.required} 
     className={css["input"]} 
     type={p.type} 
+    placeholder={p.placeholder}
     defaultValue={val || ""} 
     name={p.name}/>
 }

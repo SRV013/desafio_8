@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./header.css";
+console.log({ style });
 
 export function HeaderApp() {
     const [isActive, setActive] = useState(false);
     const handleToggle = () => {
         setActive(!isActive);
-
-console.log(style[".active"] ,  style["header-component-nav.active"]);
-         
     };
 
     return (
@@ -22,7 +20,7 @@ console.log(style[".active"] ,  style["header-component-nav.active"]);
             <nav
                 className={
                     isActive
-                        ? style["header-component-nav__active"]
+                        ? style["header-component-nav"] + " " + style["hambur"]
                         : style["header-component-nav"]
                 }>
                 <ul>
@@ -31,16 +29,25 @@ console.log(style[".active"] ,  style["header-component-nav.active"]);
                             Login
                         </Link>
                     </li>
-                    <li>Mascotas</li>
-                    <li>Reportes</li>
+                    <li>
+                        <Link key={"mascotas"} to="/mascotas">
+                            Mascotas
+                        </Link>
+                    </li>
+                    <li>
+                        <Link key={"reportes"} to="/reportes">
+                            Reportes
+                        </Link>
+                    </li>
                 </ul>
             </nav>
             <div
                 onClick={handleToggle}
                 className={
-                    isActive 
-                        ? style["menu__active"] 
-                        : style["menu"]}>
+                    isActive
+                        ? style["menu"] + " " + style["active"]
+                        : style["menu"]
+                }>
                 <div></div>
                 <div></div>
                 <div></div>

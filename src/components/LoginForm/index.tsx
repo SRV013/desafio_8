@@ -13,17 +13,12 @@ class LoginForm extends React.Component<any, any> {
 //            this.props.onSearch(e.target.mail.value);
         };
         return (
-            <form onSubmit={login} className={styles["login__container"]}>
-                <Input type={"text"} name={"mail"} required></Input>
-                <Input type={"password"} name={"pass"} required></Input>
+            <form onSubmit={login} className={styles["__container"]}>
+                <Input type={"text"} name={"mail"} placeholder="correo electrónico" required></Input>
+                <Input type={"password"} name={"pass"} placeholder="ingrese password" required></Input>
                 <Button name={"login"}>Ingresar</Button>
             </form>
         );
     }
 }
 export { LoginForm };
-
-export function Comison(e) {
-    console.log(e.texto, e.man);
-    return <div><h1>soy el segundo</h1></div>;
-}
