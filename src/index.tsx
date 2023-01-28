@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { AppRoutes } from "./router";
+import { AppRoutes } from "router";
 import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 

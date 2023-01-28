@@ -1,9 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "../components/Layout";
-import { Home } from "../pages/home";
-import { Login } from "../pages/login";
-import { UserNew } from "../pages/user_new";
+import { Layout } from "components/Layout";
+import { Home } from "pages/home";
+import { Login } from "pages/login";
+import { UserNew } from "pages/user_new";
+import { UserEdit } from "pages/user_edit";
 
 export function AppRoutes() {
     return (
@@ -12,7 +13,8 @@ export function AppRoutes() {
                 <Route index element={<Home />} />
                 <Route path="login" element={<Login />} />
                 <Route path="user_new" element={<UserNew />} />
-                {/*<Route path="user_edit" element={<Login />} />
+                <Route path="user_edit" element={<UserEdit />} />
+                {/*
         <Route path="pet_list" element={<Login />} />
         <Route path="pet_new" element={<Login />} />
         <Route path="pet_edit" element={<Login />} />

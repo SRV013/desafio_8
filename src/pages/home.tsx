@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./pages.css";
-import { Button } from "../ui/button";
+import { Button } from "ui/button";
 
 export function Home() {
     return (

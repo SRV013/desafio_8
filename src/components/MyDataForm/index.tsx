@@ -3,14 +3,9 @@ import { Input } from "../../ui/input_text/";
 import { Button } from "../../ui/button";
 import styles from "../LoginForm/login.css";
 
-class MyDataForm extends React.Component<any, any> {
-    // constructor(props) {
-    //     super(props);
-    // }
-    render() {
+export function MyDataForm (p){
         const login = (e) => {
             e.preventDefault();
-//            this.props.onSearch(e.target.mail.value);
         };
         return (
             <form onSubmit={login} className={styles["__container"]}>
@@ -22,6 +17,4 @@ class MyDataForm extends React.Component<any, any> {
                 <Button name={"save"}>Guardar</Button>
             </form>
         );
-    }
-}
-export { MyDataForm };
+    };
