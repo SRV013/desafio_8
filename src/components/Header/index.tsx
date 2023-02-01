@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { myToken} from "atoms";
+import { myToken } from "atoms";
 import { useRecoilState } from "recoil";
 
 import style from "./header.css";
 
 export function HeaderApp() {
-
-    const Token  = useRecoilState(myToken);
-
-
-
+    const Token = useRecoilState(myToken);
     const [isActive, setActive] = useState(false);
     const handleToggle = () => {
         setActive(!isActive);
@@ -33,16 +29,15 @@ export function HeaderApp() {
                 }>
                 <ul>
                     <li>
-                    {!Token 
-                    ?
-                        <Link key={"login"} to="/login">
-                            Login
-                        </Link>
-                    :    
-                        <Link key={"cuenta"} to="/user_edit">
-                            Perfil
-                        </Link>
-                    }
+                        {!Token[0] ? (
+                            <Link key={"login"} to="/login">
+                                Login
+                            </Link>
+                        ) : (
+                            <Link key={"cuenta"} to="/user_edit">
+                                Perfil
+                            </Link>
+                        )}
                     </li>
                     <li>
                         <Link key={"mascotas"} to="/mascotas">

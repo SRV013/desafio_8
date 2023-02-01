@@ -1,4 +1,4 @@
-import React ,{ useState, useEffect} from "react"
+import React  from "react"
 import css from "./index.css"
 
 type props = {
@@ -10,6 +10,14 @@ type props = {
 export function Button(props) {
     return <button 
     className={css["button"]}
+    name={props.name} 
+    value={props.value}
+    onClick={props.onClick}
+    >{props.children}</button>
+}
+export function ButtonV2(props) {
+    return <button 
+    className={css["buttonv2"]}
     name={props.name} 
     value={props.value}
     onClick={props.onClick}

@@ -1,25 +1,26 @@
-import React, { HTMLInputTypeAttribute, useState } from "react";
+import React, { HTMLInputTypeAttribute } from "react";
 import css from "./index.css";
 
 type props = {
     type: HTMLInputTypeAttribute;
-    className?: string;
     name: string;
     value?: string;
+    className?: string;
     required?: boolean;
     placeholder: string;
+    readOnly?:boolean;
 };
 
-export function Input(p: props) {
-    const [val, setVal] = useState("");
+export function Input(p: props) {        
     return (
         <input
             type={p.type}
             name={p.name}
+            defaultValue={p.value}
             className={css["input"]}
-            defaultValue={val || ""}
             required={p.required}
             placeholder={p.placeholder}
+            readOnly={p.readOnly}
         />
     );
 }

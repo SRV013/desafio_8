@@ -16,18 +16,17 @@ export function LoginForm() {
 
     const login = async (e) => {
         e.preventDefault();
-        setIsLoading(true);
         const email = e.target.email.value;
         const password = e.target.password.value;
+        setIsLoading(true);
         const data = await userLogin(email, password);
-        if (data[0]) {
+        if (data) {
             setToken(data[0]);
             setuserId(data[1]);
             setIsLoading(false);
-            navigate("/");
+            navigate("/user_edit");
         } else {
-            window.alert("El usuario o la contraseña son incorrecta !!!");
-            setIsLoading(false);
+            //        setUser("error de pass");
         }
     };
     return (
@@ -38,16 +37,21 @@ export function LoginForm() {
             ) : (
                 <form onSubmit={login} className={styles["__container"]}>
                     <Input
-                        type={"text"}
-                        name={"email"}
-                        placeholder="correo electrónico"
+                        type={"password"}
+                        name={"password"}
+                        placeholder="password actual"
                         required></Input>
                     <Input
                         type={"password"}
                         name={"password"}
                         placeholder="ingrese password"
                         required></Input>
-                    <Button name={"login"}>Ingresar</Button>
+                    <Input
+                        type={"password"}
+                        name={"password"}
+                        placeholder="repita password"
+                        required></Input>
+                    <Button name={"save"}>Guardar</Button>
                 </form>
             )}
         </>

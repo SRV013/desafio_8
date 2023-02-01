@@ -22,3 +22,28 @@ button:disabled{
     background:#e0e0e0;
     cursor: progress;
 }
+
+.buttonv2{
+    background: #f15425;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 25px;
+    letter-spacing: 0.1px;
+    line-height: 1em;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    margin: 7px;
+}
+.buttonv2:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.buttonv2:disabled{
+    background:#e0e0e0;
+    cursor: progress;
+}
