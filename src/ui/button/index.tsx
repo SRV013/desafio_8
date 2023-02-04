@@ -4,7 +4,7 @@ import css from "./index.css"
 type props = {
     className?: string
     value?: string
-    name: string
+    name?: string
     children:string
 }
 export function Button(props) {
@@ -21,5 +21,15 @@ export function ButtonV2(props) {
     name={props.name} 
     value={props.value}
     onClick={props.onClick}
+    type={props.type}
+    >{props.children}</button>
+}
+export function ButtonSmall(props) {
+    return <button 
+    className={css["small__button"]}
+    name={props.name} 
+    value={props.value}
+    onClick={props.onClick}
+    type={props.type}
     >{props.children}</button>
 }

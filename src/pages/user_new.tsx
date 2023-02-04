@@ -1,5 +1,5 @@
 import React from "react";
-import {MyDataForm} from "../components/MyDataForm"
+import {MyDataForm} from "components/MyDataForm/new"
 import styles from "./pages.css";
 
 export function UserNew(){

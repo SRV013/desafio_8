@@ -6,6 +6,8 @@ import { Login } from "pages/login";
 import { LoginEdit } from "pages/login_edit";
 import { UserNew } from "pages/user_new";
 import { UserEdit } from "pages/user_edit";
+import { PetList } from "pages/pet_list";
+import { PetNew } from "pages/pet_new";
 
 export function AppRoutes() {
     return (
@@ -16,9 +18,9 @@ export function AppRoutes() {
                 <Route path="login_edit" element={<LoginEdit />} />
                 <Route path="user_new" element={<UserNew />} />
                 <Route path="user_edit" element={<UserEdit />} />
+                <Route path="pet_list" element={<PetList />} />
+                <Route path="pet_new" element={<PetNew />} />
                 {/*
-        <Route path="pet_list" element={<Login />} />
-        <Route path="pet_new" element={<Login />} />
         <Route path="pet_edit" element={<Login />} />
         <Route path="report_new" element={<Login />} /> */}
             </Route>

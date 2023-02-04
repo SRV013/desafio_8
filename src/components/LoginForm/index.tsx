@@ -26,7 +26,7 @@ export function LoginForm() {
             setIsLoading(false);
             navigate("/");
         } else {
-            window.alert("El usuario o la contraseña son incorrecta !!!");
+            window.alert("Usuario o contraseña incorrecta !!!");
             setIsLoading(false);
         }
     };
@@ -38,7 +38,7 @@ export function LoginForm() {
             ) : (
                 <form onSubmit={login} className={styles["__container"]}>
                     <Input
-                        type={"text"}
+                        type={"email"}
                         name={"email"}
                         placeholder="correo electrónico"
                         required></Input>

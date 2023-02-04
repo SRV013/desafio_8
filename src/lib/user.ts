@@ -10,14 +10,39 @@ export async function userLogin(email, password) {
     return tokenJson;
 }
 
-export async function userShow(token, idUser) {     
-    const data = await fetch(API_BASE_URL + "/usuario/" + idUser[0], {
+export async function userNew(nombre, telefono, email, password) {
+    const dataNew = await fetch(API_BASE_URL + "/usuario", {
+        method: "POST",
+        body: JSON.stringify({ nombre, telefono, email, password }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const dataJson = await dataNew.json();
+    return dataJson;
+}
+
+export async function userShow(token, idUser) {
+    const dataView = await fetch(API_BASE_URL + "/usuario/" + idUser[0], {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
             Authorization: `bearer ${token[0]}`,
-        }
+        },
     });
-    const dataJson = await data.json();    
+    const dataJson = await dataView.json();
+    return dataJson;
+}
+
+export async function userSave(token, idUser , data) {
+    const dataUpdate = await fetch(API_BASE_URL + "/usuario/" + idUser[0], {
+        method: "PATCH",
+        headers: {
+            Authorization: `bearer ${token[0]}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    const dataJson = await dataUpdate.json();
     return dataJson;
 }

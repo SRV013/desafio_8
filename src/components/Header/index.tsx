@@ -40,12 +40,12 @@ export function HeaderApp() {
                         )}
                     </li>
                     <li>
-                        <Link key={"mascotas"} to="/mascotas">
+                        <Link key={"mascotas"} to="/pet_list">
                             Mascotas
                         </Link>
                     </li>
                     <li>
-                        <Link key={"reportes"} to="/reportes">
+                        <Link key={"reportes"} to="/report">
                             Reportes
                         </Link>
                     </li>
