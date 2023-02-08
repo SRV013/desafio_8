@@ -14,7 +14,7 @@ export function LoginForm() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const login = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         const password = e.target.newpass.value;
         const repeat = e.target.repeat.value;        
         if (password == repeat) {

@@ -24,3 +24,15 @@ export function Input(p: props) {
         />
     );
 }
+export function TextArea(p: props) {        
+    return (
+        <textarea
+            type={p.type}
+            name={p.name}
+            defaultValue={p.value}
+            className={css["textarea"]}
+            required={p.required}
+            placeholder={p.placeholder}
+        />
+    );
+}

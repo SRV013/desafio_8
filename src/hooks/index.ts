@@ -1,4 +1,4 @@
-import { myToken , usermyId } from "atoms";
+import { myToken , usermyId , pictureId} from "atoms";
 import { useRecoilState } from "recoil";
 
 export function tokenHooks(): any {
@@ -9,4 +9,9 @@ export function tokenHooks(): any {
 export function myId(): any {
     const [myId, setmyId] = useRecoilState(usermyId);
     return [myId, setmyId];
+}
+
+export function myPicture(): any {
+    const [myPicture, setPicture] = useRecoilState(pictureId);
+    return [myPicture, setPicture];
 }

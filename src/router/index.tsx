@@ -8,6 +8,7 @@ import { UserNew } from "pages/user_new";
 import { UserEdit } from "pages/user_edit";
 import { PetList } from "pages/pet_list";
 import { PetNew } from "pages/pet_new";
+import { PetEdit } from "pages/pet_edit";
 
 export function AppRoutes() {
     return (
@@ -20,8 +21,8 @@ export function AppRoutes() {
                 <Route path="user_edit" element={<UserEdit />} />
                 <Route path="pet_list" element={<PetList />} />
                 <Route path="pet_new" element={<PetNew />} />
+                <Route path="pet_edit" element={<PetEdit />} />
                 {/*
-        <Route path="pet_edit" element={<Login />} />
         <Route path="report_new" element={<Login />} /> */}
             </Route>
         </Routes>

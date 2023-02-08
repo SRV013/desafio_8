@@ -17,3 +17,9 @@ export const usermyId = atom({
     default: "",
     effects_UNSTABLE: [persistAtom],
 });
+
+export const pictureId = atom({
+    key: "pictureId",
+    default: "",
+    effects_UNSTABLE: [persistAtom],
+});

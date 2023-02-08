@@ -20,11 +20,13 @@
     font-size: 14px;
     color: rgb(124, 124, 124);
     position: absolute;
-    padding: 100px;
+    margin: 95px 0px;
+    width: 100%;
+    text-align: center;
 }
 .mascota__imagen {
     height: 200px;
-    width: 200px;
+    min-width: 200px;
     border: 2px solid #ffffff;
     filter: drop-shadow(3px 4px 8px #a2a2a2);
     border-radius: 50%;
@@ -33,7 +35,7 @@
     background-size: cover;
     margin-bottom:15px
 }
-.dz-image img {
+.mascota__imagen img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
@@ -44,37 +46,31 @@
 .mascota__imagen:hover {
     border-color: #e3e3e3;
     cursor: pointer;
+    transform: rotateZ(25deg);
+    transition: 0.8s;
 }
 .mascota__nombre {
-    color: #000;
+    color: #464646;
     min-width: 200px;
-    letter-spacing: 2px;
     text-align: center;
-    z-index: 1;
-    background: #e1e1e1;
-    border-radius: 6px;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
-    opacity: 0.8;
-    margin-top: -65px;
-    background: #ececec;
-    border-radius: 50px 50px 50px 50px;
-    margin-top: -32px;
-    font-size: 24px;
-    font-weight: 700;
-    border: 1px;
-    border-color: #b6b6b6;
-    border-style: double;
+    padding: 0px 0px 15px 0px;
 }
-
+.mascota__nombre:hover {
+    cursor: pointer;
+    color: #12a66b;
+    transform: scaleX(1.1);
+    transition: 1s;
+    text-decoration: underline;
+}
 textarea:focus {
     transition: 0.5s;
     transform: scale(1.07);
 }
 textarea {
-    resize: none;
-    min-width: 240px;
-
+    /* resize: none; */
+    min-width: 245px;
 }
 input[type="checkbox"] {
     height: 22px;
@@ -84,6 +80,14 @@ label {
     font-size: 20px;
     line-height: 1.1;
     display: grid;
+    grid-template-columns: 35px 190px;
+    justify-items: center;
+    align-items: center;
+}
+.error {
+    font-size: 20px;
+    color: red;
+    line-height: 1.1;
     grid-template-columns: 35px 190px;
     justify-items: center;
     align-items: center;
