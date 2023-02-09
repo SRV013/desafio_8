@@ -59,9 +59,9 @@
 }
 .mascota__nombre:hover {
     cursor: pointer;
-    color: #12a66b;
+    color: #1ec112;
     transform: scaleX(1.1);
-    transition: 1s;
+    transition: 0.8s;
     text-decoration: underline;
 }
 textarea:focus {

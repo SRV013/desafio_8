@@ -1,4 +1,4 @@
-import { myToken , usermyId , pictureId} from "atoms";
+import { myToken, usermyId, pictureId, imageDrop, petSet } from "atoms";
 import { useRecoilState } from "recoil";
 
 export function tokenHooks(): any {
@@ -15,3 +15,9 @@ export function myPicture(): any {
     const [myPicture, setPicture] = useRecoilState(pictureId);
     return [myPicture, setPicture];
 }
+export function myPets(): any {
+    const [myPets, setPets] = useRecoilState(petSet);
+    return [myPets, setPets];
+}
+
+

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input } from "ui/input_text/";
+import { Input , TextArea } from "ui/input_text/";
 import { Button, ButtonSmall } from "ui/button";
 import { LoadingSpinner } from "pages/spinner";
 import styles from "./index.css";
@@ -51,10 +51,11 @@ export function MyPetForm() {
                         name={"nombre"}
                         placeholder="nombre"
                         required></Input>
-                    <textarea
+                    <TextArea
+                        type="textarea"
                         name="sobremi"
                         placeholder="sobre mi"
-                        required></textarea>
+                        required></TextArea>
                     <img src="../src/assets/ubicacion.png" />
                     <ButtonSmall class="small__button">
                         Agregar ubicacion

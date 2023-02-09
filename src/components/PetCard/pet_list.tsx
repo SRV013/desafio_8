@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Button, ButtonSmall } from "ui/button";
-import styles from "./index.css";
+import { useNavigate } from "react-router-dom";
 import { LoadingSpinner } from "pages/spinner";
+import { Button } from "ui/button";
+import styles from "./index.css";
 import { petList } from "lib/pet";
+import { myPets } from "hooks";
 import { myToken, usermyId } from "atoms";
 import { useRecoilState } from "recoil";
-import { useNavigate } from "react-router-dom";
 export function PetForm() {
     const my_Token = useRecoilState(myToken);
     const idUser = useRecoilState(usermyId);
+    const [petCurrent, setCurrentPet] = myPets();
     const [petView, setpetList] = useState([]);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
@@ -22,9 +24,8 @@ export function PetForm() {
     const newPet = () => {
         navigate("/pet_new");
     };
-    const editPet = (i) => {
-        // setCurrentPet(pets[i]);
-        // setEdit(true);
+    const editPet = (pets) => {
+        setCurrentPet(pets);
         navigate("/pet_edit");
     };
     return (
@@ -38,7 +39,7 @@ export function PetForm() {
                         <div
                             className={styles["mascota"]}
                             key={pet.id}
-                            onClick={() => editPet(pet.id)}>
+                            onClick={() => editPet(pet)}>
                             <div
                                 className={styles["mascota__imagen"]}
                                 style={{

@@ -29,14 +29,14 @@ export async function petList(token, idUser) {
     return dataJson;
 }
 
-export async function petView(token, idUser) {
-    const pet = await fetch(API_BASE_URL + "/mascota_buscar/2", {
-        method: "GET",
-        headers: {
-            Authorization: `bearer ${token[0]}`,
-            "Content-Type": "application/json",
-        },
-    });
-    const dataJson = await pet.json();
-    return dataJson;
-}
+// export async function petView(token, idUser) {
+//     const pet = await fetch(API_BASE_URL + "/mascota_buscar/2", {
+//         method: "GET",
+//         headers: {
+//             Authorization: `bearer ${token[0]}`,
+//             "Content-Type": "application/json",
+//         },
+//     });
+//     const dataJson = await pet.json();
+//     return dataJson;
+// }

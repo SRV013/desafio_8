@@ -5,6 +5,8 @@ import styles from "./index.css";
 export function MyPetImg(e) {
     const [Picture, setPicture] = myPicture();
     const [selectedImage, setSelectedImage] = useState([]);
+    const {existingImage } = e;
+
     const onDrop = useCallback((acceptedFiles) => {
         acceptedFiles.forEach((file) => {
             setSelectedImage([
@@ -22,7 +24,6 @@ export function MyPetImg(e) {
             reader.readAsDataURL(file);
         });
     }, []);
-
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
         maxFiles: 1,
@@ -36,7 +37,9 @@ export function MyPetImg(e) {
         <div className={styles["mascota"]} {...getRootProps()}>
             <div {...getInputProps()} />
             <div className={styles["mascota__imagen"]}>
-                {selectedImage[0] ? (
+                {existingImage ? (
+                    <img src={existingImage}></img>
+                ) : selectedImage[0] ? (
                     <img src={selectedImage[0].preview}></img>
                 ) : (
                     <div className={styles["mascota__cargar"]}>

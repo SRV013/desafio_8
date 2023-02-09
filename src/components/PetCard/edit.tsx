@@ -1,31 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Input, TextArea } from "ui/input_text/";
 import { Button, ButtonSmall } from "ui/button";
 import { LoadingSpinner } from "pages/spinner";
 import styles from "./index.css";
-import { petView } from "lib/pet";
+// import { petView } from "lib/pet";
 import { MyPetImg } from "./dropzone";
 import { useNavigate } from "react-router-dom";
-import { myToken, usermyId, pictureId } from "atoms";
+import {petSet } from "atoms";
 import { useRecoilState } from "recoil";
 export function MyPetForm() {
-    const picture = useRecoilState(pictureId);
-    const my_Token = useRecoilState(myToken);
-    const idUser = useRecoilState(usermyId);
-    const [petEdit, setpetEdit] = useState([]);
+    const petEdit = useRecoilState(petSet);
 
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        setIsLoading(true);
-        petView(my_Token, idUser).then((e) => {
-            console.log(e)
-            setpetEdit(e);
-            setIsLoading(false);
-        });
-    }, []);
-
+    
     async function pet(e) {
         e.preventDefault();
         // const nombre = e.target.nombre.value;
@@ -55,20 +44,20 @@ export function MyPetForm() {
             {" "}
             {isLoading ? (
                 <LoadingSpinner />
-            ) : petEdit.id ? (
+            ) : petEdit[0]?.id ? (
                 <form onSubmit={pet} className={styles["__container"]}>
-                    <MyPetImg />
+                    <MyPetImg existingImage={petEdit[0]?.pictureURL} />
                     <Input
                         type={"text"}
                         name={"nombre"}
                         placeholder="nombre"
-                        value={petEdit?.nombre}
+                        value={petEdit[0]?.nombre}
                         required></Input>
                     <TextArea
                         name="sobremi"
                         type={"textarea"}
                         placeholder="sobre mi"
-                        value={petEdit?.sobremi}
+                        value={petEdit[0]?.sobremi}
                         required></TextArea>
                     <img src="../src/assets/ubicacion.png" />
                     <ButtonSmall class="small__button">
@@ -78,7 +67,7 @@ export function MyPetForm() {
                         <input
                             type="checkbox"
                             name="publicada"
-                            defaultChecked={petEdit?.publicada}
+                            defaultChecked={petEdit[0]?.publicada}
                         />
                         Publicar Mascota
                     </label>
@@ -86,7 +75,7 @@ export function MyPetForm() {
                         <input
                             type="checkbox"
                             name="perdida"
-                            defaultChecked={petEdit?.perdida}
+                            defaultChecked={petEdit[0]?.perdida}
                         />
                         Marcar Como Perdida
                     </label>
