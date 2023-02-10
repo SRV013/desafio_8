@@ -2,11 +2,13 @@ import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { myPicture } from "hooks";
 import styles from "./index.css";
+import { useRecoilState } from "recoil";
+import {  pictureId} from "atoms";
+
 export function MyPetImg(e) {
     const [Picture, setPicture] = myPicture();
     const [selectedImage, setSelectedImage] = useState([]);
-    const {existingImage } = e;
-
+    const picture = useRecoilState(pictureId);
     const onDrop = useCallback((acceptedFiles) => {
         acceptedFiles.forEach((file) => {
             setSelectedImage([
@@ -37,10 +39,10 @@ export function MyPetImg(e) {
         <div className={styles["mascota"]} {...getRootProps()}>
             <div {...getInputProps()} />
             <div className={styles["mascota__imagen"]}>
-                {existingImage ? (
-                    <img src={existingImage}></img>
-                ) : selectedImage[0] ? (
+                {selectedImage[0] ? (
                     <img src={selectedImage[0].preview}></img>
+                ) : picture[0] ? (
+                    <img src={picture[0]}></img>
                 ) : (
                     <div className={styles["mascota__cargar"]}>
                         AGREGAR FOTO
@@ -48,5 +50,5 @@ export function MyPetImg(e) {
                 )}
             </div>
         </div>
-    );
+    )
 }

@@ -37,6 +37,11 @@
     border-left-color: #d6b986;
     border-right-color: #f0edbd;
 }
+.mascota__imagen::before {
+    content: "🆘";
+    font-size: 39px;
+    opacity:0.8;
+}
 .mascota__imagen img {
     height: 190px;
     min-width: 190px;

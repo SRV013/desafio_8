@@ -3,41 +3,44 @@ import { Input, TextArea } from "ui/input_text/";
 import { Button, ButtonSmall } from "ui/button";
 import { LoadingSpinner } from "pages/spinner";
 import styles from "./index.css";
-// import { petView } from "lib/pet";
+import { petCurrentEdit } from "lib/pet";
 import { MyPetImg } from "./dropzone";
 import { useNavigate } from "react-router-dom";
-import {petSet } from "atoms";
+import { myToken, usermyId, petSet, pictureId } from "atoms";
+import { myPets } from "hooks";
 import { useRecoilState } from "recoil";
 export function MyPetForm() {
+    const my_Token = useRecoilState(myToken);
+    const idUser = useRecoilState(usermyId);
     const petEdit = useRecoilState(petSet);
-
+    const [petCurrent, setCurrentPet] = myPets();
+    const picture = useRecoilState(pictureId);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-
-    
     async function pet(e) {
         e.preventDefault();
-        // const nombre = e.target.nombre.value;
-        // const sobremi = e.target.sobremi.value;
-        // const ubicacion = "lat: -57.543765 , Lng: -38.012286";
-        // const publicada = e.target["publicada"].checked;
-        // const perdida = e.target["perdida"].checked;
-        // const pictureURL = picture[0];
-        // const lat = "-57.543765";
-        // const lng = "-38.012286";
-        // setIsLoading(true);
-        // petEdit(my_Token, idUser, {
-        //     nombre,
-        //     sobremi,
-        //     publicada,
-        //     perdida,
-        //     pictureURL,
-        //     lat,
-        //     lng,
-        // }).then((e) => {
-        //     setIsLoading(false);
-        //     navigate("/pet_list");
-        // });
+        const nombre = e.target.nombre.value;
+        const sobremi = e.target.sobremi.value;
+        const ubicacion = "lat: -57.543765 , Lng: -38.012286";
+        const publicada = e.target["publicada"].checked;
+        const perdida = e.target["perdida"].checked;
+        const pictureURL = picture[0];
+        // .includes('https://res.cloudinary.com')  || picture[0];
+        // console.log(pictureURL)
+        const lat = "-57.543765";
+        const lng = "-38.012286";
+        setIsLoading(true);
+        petCurrentEdit(my_Token, petEdit[0].id, {
+            nombre,
+            sobremi,
+            pictureURL,
+            publicada,
+            perdida,
+        }).then((pets) => {
+            setCurrentPet({ id: idUser[0], ...pets });
+            setIsLoading(false);
+            navigate("/pet_list");
+        });
     }
     return (
         <>
@@ -46,7 +49,7 @@ export function MyPetForm() {
                 <LoadingSpinner />
             ) : petEdit[0]?.id ? (
                 <form onSubmit={pet} className={styles["__container"]}>
-                    <MyPetImg existingImage={petEdit[0]?.pictureURL} />
+                    <MyPetImg />
                     <Input
                         type={"text"}
                         name={"nombre"}

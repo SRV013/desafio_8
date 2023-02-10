@@ -8,7 +8,7 @@ import { myPets , myPicture} from "hooks";
 
 import { myToken, usermyId , pictureId} from "atoms";
 import { useRecoilState } from "recoil";
-export function PetForm() {
+export function ReportForm() {
     const my_Token = useRecoilState(myToken);
     const idUser = useRecoilState(usermyId);
     const [petCurrent, setCurrentPet] = myPets();
@@ -53,9 +53,6 @@ export function PetForm() {
                             </div>
                         </div>
                     ))}
-                    <Button type="button" onClick={newPet}>
-                        nueva mascota
-                    </Button>
                 </div>
             )}
         </>

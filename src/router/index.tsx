@@ -9,6 +9,7 @@ import { UserEdit } from "pages/user_edit";
 import { PetList } from "pages/pet_list";
 import { PetNew } from "pages/pet_new";
 import { PetEdit } from "pages/pet_edit";
+import { PetReport } from "pages/report_list";
 
 export function AppRoutes() {
     return (
@@ -22,8 +23,7 @@ export function AppRoutes() {
                 <Route path="pet_list" element={<PetList />} />
                 <Route path="pet_new" element={<PetNew />} />
                 <Route path="pet_edit" element={<PetEdit />} />
-                {/*
-        <Route path="report_new" element={<Login />} /> */}
+                <Route path="report_list" element={<PetReport />} />
             </Route>
         </Routes>
     );

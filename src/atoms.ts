@@ -21,25 +21,11 @@ export const usermyId = atom({
 export const pictureId = atom({
     key: "pictureId",
     default: "",
-    effects_UNSTABLE: [persistAtom],
-});
-
-export const imageDrop = atom({
-    key: "imageDrop", // unique ID (with respect to other atoms/selectors)
-    default: null, // default value (aka initial value)
+   effects_UNSTABLE: [persistAtom],
 });
 
 export const petSet = atom({
-    key: "petAtom", // unique ID (with respect to other atoms/selectors)
-    default: {
-        id: "",
-        nombre: "",
-        perdida: "",
-        publicada: "",
-        lat: 0,
-        log: 0,
-        sobremi: "",
-        pictureURL: "",
-    }, // default value (aka initial value)
+    key: "petAtom",
+    default: "",
     effects_UNSTABLE: [persistAtom],
 });

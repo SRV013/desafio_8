@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;700&family=Roboto:ital,wght@1,100&display=swap");
 
-*{  
+* {
     box-sizing: border-box;
     font-family: "Baloo Thambi 2", sans-serif;
+    color: #9a7939;
 }
