@@ -29,7 +29,7 @@ export async function petList(token, idUser) {
     return dataJson;
 }
 
-export async function petCurrentEdit(token, idPets, data) {    
+export async function petCurrentEdit(token, idPets, data) {
     const pet = await fetch(API_BASE_URL + "/mascota/" + idPets, {
         method: "PATCH",
         headers: {
@@ -38,6 +38,26 @@ export async function petCurrentEdit(token, idPets, data) {
         },
         body: JSON.stringify(data),
     });
-    const dataJson = await pet.json();    
-   return dataJson;
+    const dataJson = await pet.json();
+    return dataJson;
+}
+
+export async function reportList(aroundRadius, lat, lng) {
+    const pet = await fetch(
+        API_BASE_URL +
+            "/mascota_perdidas/" +
+            aroundRadius +
+            "/" +
+            lat +
+            "/" +
+            lng,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+    );
+    const dataJson = await pet.json();
+    return dataJson;
 }

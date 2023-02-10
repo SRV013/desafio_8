@@ -1,35 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoadingSpinner } from "pages/spinner";
-import { Button } from "ui/button";
 import styles from "./index.css";
-import { petList } from "lib/pet";
-import { myPets , myPicture} from "hooks";
+import { reportList } from "lib/pet";
+import { myPets , myLocation , ResultReportPet } from "hooks";
 
-import { myToken, usermyId , pictureId} from "atoms";
-import { useRecoilState } from "recoil";
-export function ReportForm() {
-    const my_Token = useRecoilState(myToken);
-    const idUser = useRecoilState(usermyId);
+export function ReportForm(e) {
     const [petCurrent, setCurrentPet] = myPets();
+    const [Result, setResult] = ResultReportPet();
     const [petView, setpetList] = useState([]);
-    const [Picture, setpicture] = myPicture();
-    const navigate = useNavigate();
+    const navigate = useNavigate();    
+    const aroundRadius = e.raduis;
+    const [location, setlocation] = myLocation();
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         setIsLoading(true);
-        petList(my_Token, idUser).then((pet) => {
+        navigator.geolocation.getCurrentPosition((e) => {
+            const lng = e.coords.latitude as any;
+            const lat = e.coords.longitude as any;
+            setlocation({aroundRadius , lng , lat});
+        });
+        reportList(e.raduis, location.lat, location.lng).then((pet) => {
             setpetList(pet);
+            setResult(pet.length);
             setIsLoading(false);
         });
-    }, [setCurrentPet]);
-    const newPet = () => {
-        navigate("/pet_new");
-    };
+    }, [e.raduis]);
+    
     const editPet = (pets) => {
-        setpicture(pets.pictureURL);
         setCurrentPet(pets);
-        navigate("/pet_edit");
+        navigate("/report_send");
     };
     return (
         <>

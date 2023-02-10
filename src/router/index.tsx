@@ -10,6 +10,8 @@ import { PetList } from "pages/pet_list";
 import { PetNew } from "pages/pet_new";
 import { PetEdit } from "pages/pet_edit";
 import { PetReport } from "pages/report_list";
+import { ReportSend } from "pages/report_send";
+import { Mensaje } from "pages/mensaje";
 
 export function AppRoutes() {
     return (
@@ -24,6 +26,8 @@ export function AppRoutes() {
                 <Route path="pet_new" element={<PetNew />} />
                 <Route path="pet_edit" element={<PetEdit />} />
                 <Route path="report_list" element={<PetReport />} />
+                <Route path="report_send" element={<ReportSend />} />
+                <Route path="mensaje" element={<Mensaje />} />
             </Route>
         </Routes>
     );

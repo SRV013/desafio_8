@@ -18,14 +18,25 @@ export const usermyId = atom({
     effects_UNSTABLE: [persistAtom],
 });
 
+export const Location = atom({
+    key:'location',
+    default:{},
+    effects_UNSTABLE: [persistAtom],
+  })
+
 export const pictureId = atom({
     key: "pictureId",
     default: "",
-   effects_UNSTABLE: [persistAtom],
+   //effects_UNSTABLE: [persistAtom],
 });
 
 export const petSet = atom({
     key: "petAtom",
     default: "",
     effects_UNSTABLE: [persistAtom],
+});
+
+export const findResult = atom({
+    key: "findResult",
+    default: 0,
 });

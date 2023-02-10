@@ -60,3 +60,28 @@
     align-items: center;
     height: 100px;
   }
+
+  .distancia {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+  .distancia a{
+    min-width: 80px;
+    letter-spacing: .1px;
+    border: 1px solid #f0edbd;
+    border-radius: 25px;
+    padding: 8px 10px;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+}
+.distancia a:hover{
+    filter: drop-shadow(3px 4px 8px #9a7939);
+    cursor: pointer;
+}
+
+.encontradas , .cerca {
+  font-weight: bold;
+}

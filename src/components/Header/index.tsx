@@ -45,7 +45,7 @@ export function HeaderApp() {
                         </Link>
                     </li>
                     <li>
-                        <Link key={"reportes"} to="/report_new">
+                        <Link key={"reportes"} to="/report_list">
                             Reportes
                         </Link>
                     </li>

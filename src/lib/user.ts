@@ -2,7 +2,7 @@ const API_BASE_URL = "https://m7-mascotas.onrender.com";
 
 export async function userLogin(email, password) {
     const token = await fetch(API_BASE_URL + "/usuario/login", {
-        method: "post",
+        method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
     });
@@ -42,6 +42,16 @@ export async function userSave(token, idUser , data) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+    });
+    const dataJson = await dataUpdate.json();
+    return dataJson;
+}
+export async function userEmail(idUsuario) {
+    const dataUpdate = await fetch(API_BASE_URL + "/email/" + idUsuario, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
     });
     const dataJson = await dataUpdate.json();
     return dataJson;
