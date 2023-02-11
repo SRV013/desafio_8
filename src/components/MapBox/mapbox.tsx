@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+//import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { myLocation } from "hooks/index";
+import mapboxgl from 'mapbox-gl';
 
 import { InputMap } from "ui/input_text";
 import styles from "./index.css";
-const Map = ReactMapboxGl({
-    accessToken:
-        "pk.eyJ1IjoiemFwYWlhZGV2IiwiYSI6ImNreTF1cnZ5YTBlcWMyd3NjbGhxcnV6ZmkifQ.ZmsUrIAbUSkznfj8e97tmQ",
-});
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic3J2MDEzIiwiYSI6ImNsYXJlOXQ3aTFqdnQzd21xNGxmNDJlYnkifQ.LBfdUDCBiV3fi1eKByUlFQ';
+
+// const Map = ReactMapboxGl({
+//     accessToken:
+//         "pk.eyJ1IjoiemFwYWlhZGV2IiwiYSI6ImNreTF1cnZ5YTBlcWMyd3NjbGhxcnV6ZmkifQ.ZmsUrIAbUSkznfj8e97tmQ",
+// });
 export function MapboxSeach(e) {
     const [location, setlocation] = myLocation();
     const initialCoords: any = [location.lat, location.lng];
@@ -43,7 +47,7 @@ export function MapboxSeach(e) {
                         name={"ubicacion"}
                         placeholder="ej: La Rioja 1902, Mar del Plata"
                     />
-                    <Layer
+                    {/* <Layer
                         type="symbol"
                         id="marker"
                         layout={{
@@ -51,7 +55,7 @@ export function MapboxSeach(e) {
                             "icon-size": 1.5,
                         }}>
                         <Feature coordinates={coords} />
-                    </Layer>
+                    </Layer> */}
                 </Map>
             </form>
             <div className={styles["footer"]}>ingrese su ubicacion y luego haga click afuera de la ventana !!!</div>
