@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { myLocation } from "hooks/index";
-import { Button, ButtonSmall } from "ui/button";
 
 import { InputMap } from "ui/input_text";
 import styles from "./index.css";
