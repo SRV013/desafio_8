@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Input, TextArea } from "ui/input_text/";
 import { Button, ButtonSmall } from "ui/button";
 import { LoadingSpinner } from "pages/spinner";
+import { MapboxSeach } from "components/MapBox/mapbox";
+
 import styles from "./index.css";
 import { petCurrentEdit } from "lib/pet";
 import { MyPetImg } from "./dropzone";
@@ -17,6 +19,8 @@ export function MyPetForm() {
     const picture = useRecoilState(pictureId);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
+    const [isVisible, setVisible] = useState(false);
+
     async function pet(e) {
         e.preventDefault();
         const nombre = e.target.nombre.value;
@@ -41,14 +45,25 @@ export function MyPetForm() {
             setIsLoading(false);
             navigate("/pet_list");
         });
+   
     }
+    
     return (
         <>
+           { isVisible ? (
+                <MapboxSeach />
+                ) : null
+            }
+
             {" "}
             {isLoading ? (
                 <LoadingSpinner />
-            ) : petEdit[0]?.id ? (
-                <form onSubmit={pet} className={styles["__container"]}>
+                ) : petEdit[0]?.id ? (
+                    
+                    <form onSubmit={pet} className={styles["__container"]} onClick={
+                        ()=>{
+                            setVisible(!isVisible);
+                        }} >
                     <MyPetImg />
                     <Input
                         type={"text"}
@@ -62,10 +77,14 @@ export function MyPetForm() {
                         placeholder="sobre mi"
                         value={petEdit[0]?.sobremi}
                         required></TextArea>
-                    <img src="../src/assets/ubicacion.png" />
-                    <ButtonSmall class="small__button">
-                        Modificar ubicacion
-                    </ButtonSmall>
+                         <label>
+                         Agregar Ubicacion
+                    <img src="../src/assets/ubicacion.png" onClick={
+                        ()=>{
+                            setVisible(!isVisible);
+                        }} />
+                    
+                        </label>
                     <label>
                         <input
                             type="checkbox"

@@ -27,7 +27,7 @@ export const Location = atom({
 export const pictureId = atom({
     key: "pictureId",
     default: "",
-   //effects_UNSTABLE: [persistAtom],
+   effects_UNSTABLE: [persistAtom],
 });
 
 export const petSet = atom({

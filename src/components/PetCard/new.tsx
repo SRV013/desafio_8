@@ -37,6 +37,8 @@ export function MyPetForm() {
             setIsLoading(false);
             navigate("/pet_list");
         });
+    
+    
     }
     return (
         <>
@@ -56,8 +58,8 @@ export function MyPetForm() {
                         name="sobremi"
                         placeholder="sobre mi"
                         required></TextArea>
-                    <img src="../src/assets/ubicacion.png" />
-                    <ButtonSmall class="small__button">
+                    <img src="../src/assets/ubicacion.png"/>
+                    <ButtonSmall onClick={()=>{ navigate("/mapbox")}}>
                         Agregar ubicacion
                     </ButtonSmall>
                     <label>

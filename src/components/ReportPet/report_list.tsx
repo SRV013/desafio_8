@@ -15,11 +15,13 @@ export function ReportForm(e) {
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         setIsLoading(true);
-        navigator.geolocation.getCurrentPosition((e) => {
-            const lng = e.coords.latitude as any;
-            const lat = e.coords.longitude as any;
-            setlocation({aroundRadius , lng , lat});
-        });
+        if (!location.lng && !location.lat) {
+            navigator.geolocation.getCurrentPosition((e) => {
+                const lng = e.coords.latitude as any;
+                const lat = e.coords.longitude as any;
+                setlocation({aroundRadius , lng , lat});
+            });
+        }
         reportList(e.raduis, location.lat, location.lng).then((pet) => {
             setpetList(pet);
             setResult(pet.length);

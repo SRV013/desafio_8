@@ -66,6 +66,8 @@
     gap: 5px;
     justify-content: center;
     padding-bottom: 15px;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
   .distancia a{
     min-width: 80px;

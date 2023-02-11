@@ -13,3 +13,13 @@ textarea:focus {
     transition: 0.5s;
     transform: scale(1.07);
 }
+.InputMap{
+    min-width: 300px;
+    border: 2px solid #2b2b2b;
+    position: absolute;
+    padding: 7px 7px 7px 30px;
+    width: 250px;
+    right: 15px;
+    top: 15px;
+    font-size: 16px;
+}

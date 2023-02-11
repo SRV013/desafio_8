@@ -27,12 +27,25 @@ export function Input(p: props) {
 export function TextArea(p: props) {        
     return (
         <textarea
-            type={p.type}
-            name={p.name}
-            defaultValue={p.value}
-            className={css["textarea"]}
-            required={p.required}
-            placeholder={p.placeholder}
+        type={p.type}
+        name={p.name}
+        defaultValue={p.value}
+        className={css["textarea"]}
+        required={p.required}
+        placeholder={p.placeholder}
         />
-    );
-}
+        );
+    }
+export function InputMap(p: props) {        
+        return (
+            <input
+                type={p.type}
+                name={p.name}
+                defaultValue={p.value}
+                className={css["InputMap"]}
+                required={p.required}
+                placeholder={p.placeholder}
+                readOnly={p.readOnly}
+            />
+        );
+    }
