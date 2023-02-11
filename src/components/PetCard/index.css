@@ -9,6 +9,13 @@
     align-items: center;
     font-weight: 400;
 }
+.__container__opc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 400;
+    opacity: 0.1;
+}
 .mascota {
     display: flex;
     flex-direction: column;
@@ -92,4 +99,29 @@ label {
     grid-template-columns: 35px 190px;
     justify-items: center;
     align-items: center;
+}
+.ubicacion {
+    min-width: 240px;
+    border: 1px solid #f0edbd;
+    border-radius: 25px;
+    font-size: 16px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+.ubicacion img{
+    padding: 10px;
+}
+.ubicacion:hover {
+    cursor: pointer;
+    border-color: #d5b886;
+    border-style: dashed;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+.ubicacion a{
+    padding: 10px;
+  font-size: 14px;
 }

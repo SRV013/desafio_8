@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input, TextArea } from "ui/input_text/";
 import { Button, ButtonSmall } from "ui/button";
 import { LoadingSpinner } from "pages/spinner";
@@ -45,25 +45,26 @@ export function MyPetForm() {
             setIsLoading(false);
             navigate("/pet_list");
         });
-   
     }
-    
+
     return (
         <>
-           { isVisible ? (
-                <MapboxSeach />
-                ) : null
-            }
-
-            {" "}
+            {isVisible ? <MapboxSeach /> : null}
             {isLoading ? (
                 <LoadingSpinner />
-                ) : petEdit[0]?.id ? (
-                    
-                    <form onSubmit={pet} className={styles["__container"]} onClick={
-                        ()=>{
-                            setVisible(!isVisible);
-                        }} >
+            ) : petEdit[0]?.id ? (
+                <form
+                    onSubmit={pet}
+                    className={
+                        !isVisible
+                            ? styles["__container"]
+                            : styles["__container__opc"]
+                    }
+                    onClick={() => {
+                        {
+                            isVisible ? setVisible(!isVisible) : null;
+                        }
+                    }}>
                     <MyPetImg />
                     <Input
                         type={"text"}
@@ -77,14 +78,14 @@ export function MyPetForm() {
                         placeholder="sobre mi"
                         value={petEdit[0]?.sobremi}
                         required></TextArea>
-                         <label>
-                         Agregar Ubicacion
-                    <img src="../src/assets/ubicacion.png" onClick={
-                        ()=>{
+                    <div
+                        className={styles["ubicacion"]}
+                        onClick={() => {
                             setVisible(!isVisible);
-                        }} />
-                    
-                        </label>
+                        }}>
+                        <img src="../src/assets/ubicacion.png" />
+                        <a>Agregar Ubicacion</a>
+                    </div>
                     <label>
                         <input
                             type="checkbox"

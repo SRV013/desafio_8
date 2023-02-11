@@ -28,6 +28,7 @@ export function MapboxSeach(e) {
     }
     return (
         <div className={styles["__container"]}>
+            <div className={styles["header"]}>Mapa de localización</div>
             <form onSubmit={buscar}>
                 <Map
                     style="mapbox://styles/mapbox/streets-v9"
@@ -54,6 +55,7 @@ export function MapboxSeach(e) {
                     </Layer>
                 </Map>
             </form>
+            <div className={styles["footer"]}>ingrese su ubicacion y luego haga click afuera de la ventana !!!</div>
         </div>
     );
 }
