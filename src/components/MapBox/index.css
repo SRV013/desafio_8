@@ -25,3 +25,20 @@
     text-align: center;
     padding: 10px ;
 }
+.map-container {
+    height: 300px;
+    }
+
+    .sidebar {
+        background-color: #000000e6;
+        color: #fff;
+        padding: 6px 12px;
+        font-family: monospace;
+        z-index: 1;
+        position: absolute;
+        top: 120px;
+        right: 0;
+        margin: 12px;
+        border-radius: 4px;
+        opacity: 0.6;
+        }
