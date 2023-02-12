@@ -1,4 +1,13 @@
-import { myToken, usermyId, pictureId, petSet , Location ,findResult } from "atoms";
+import {
+    myToken,
+    usermyId,
+    pictureId,
+    petSet,
+    Location,
+    findResult,
+    viewModal,
+    mypetLocation,
+} from "atoms";
 import { useRecoilState } from "recoil";
 
 export function tokenHooks(): any {
@@ -27,5 +36,11 @@ export function ResultReportPet(): any {
     const [myResult, setResult] = useRecoilState(findResult);
     return [myResult, setResult];
 }
-
-
+export function myModal(): any {
+    const [myResult, setResult] = useRecoilState(viewModal);
+    return [myResult, setResult];
+}
+export function petLocation(): any {
+    const [myResult, setResult] = useRecoilState(mypetLocation);
+    return [myResult, setResult];
+}

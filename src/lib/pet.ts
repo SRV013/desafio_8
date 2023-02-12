@@ -29,7 +29,7 @@ export async function petList(token, idUser) {
     return dataJson;
 }
 
-export async function petCurrentEdit(token, idPets, data) {
+export async function petCurrentEdit(token, idPets, data) {    
     const pet = await fetch(API_BASE_URL + "/mascota/" + idPets, {
         method: "PATCH",
         headers: {

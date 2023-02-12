@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import { Input , TextArea } from "ui/input_text/";
-import { Button, ButtonSmall } from "ui/button";
+import { Button } from "ui/button";
 import { LoadingSpinner } from "pages/spinner";
+import { MapboxSeach } from "components/MapBox/mapbox";
+
 import styles from "./index.css";
 import { petNew } from "lib/pet";
 import { MyPetImg } from "./dropzone";
 import { useNavigate } from "react-router-dom";
-import { myToken, usermyId, pictureId } from "atoms";
+import { myToken, usermyId, pictureId  , mypetLocation} from "atoms";
 import { useRecoilState } from "recoil";
+import { myModal } from "hooks";
 export function MyPetForm() {
     const picture = useRecoilState(pictureId);
     const my_Token = useRecoilState(myToken);
     const idUser = useRecoilState(usermyId);
+    const [coords] = useRecoilState(mypetLocation);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
+    const [isVisible, setVisible] = myModal();
+
     async function pet(e) {
         e.preventDefault();
         const nombre = e.target.nombre.value;
@@ -42,7 +48,7 @@ export function MyPetForm() {
     }
     return (
         <>
-            {" "}
+          {isVisible ? <MapboxSeach /> : null}
             {isLoading ? (
                 <LoadingSpinner />
             ) : (
@@ -58,10 +64,12 @@ export function MyPetForm() {
                         name="sobremi"
                         placeholder="sobre mi"
                         required></TextArea>
-                    <img src="../src/assets/ubicacion.png"/>
-                    <ButtonSmall onClick={()=>{ navigate("/mapbox")}}>
-                        Agregar ubicacion
-                    </ButtonSmall>
+                       <div
+                        className={styles["ubicacion"]}
+                        onClick={() => setVisible(!isVisible)}>
+                        <img src="../src/assets/ubicacion.png" />
+                        <a>{coords ? `Modificar` : `Agregar Ubicacion`} </a>
+                    </div>
                     <label>
                         <input type="checkbox" name="publicada" />
                         Publicar Mascota
