@@ -36,15 +36,15 @@ export function MyPetImg(e) {
     return (
         <div className={styles["mascota"]} {...getRootProps()}>
             <div {...getInputProps()} />
-            <div 
+            <div
                 className={styles["mascota__imagen"]}
                 style={{
                     backgroundImage: `url(${
                         selectedImage[0] ? selectedImage[0].preview : e.img
                     })`,
-                }} >
+                }}>
                 {!selectedImage[0] &&  ! e.img? (
-                    <div className={styles["mascota__cargar"]} > 
+                    <div className={styles["mascota__cargar"]}>
                         AGREGAR FOTO
                     </div>
                 ) : (
