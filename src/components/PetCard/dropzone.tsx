@@ -35,7 +35,7 @@ export function MyPetImg(e) {
 
     return (
         <div className={styles["mascota"]} {...getRootProps()}>
-            <div {...getInputProps()} />
+               <input {...getInputProps()} />
             <div
                 className={styles["mascota__imagen"]}
                 style={{
