@@ -24,7 +24,7 @@ export function MyPetImg(e) {
             reader.readAsDataURL(file);
         });
     }, []);
-    const { getRootProps, getInputProps , isDragActive } = useDropzone({
+    const { getRootProps, getInputProps  } = useDropzone({
         onDrop,
         maxFiles: 1,
         multiple: undefined,
@@ -36,11 +36,6 @@ export function MyPetImg(e) {
     return (
         <div className={styles["mascota"]} {...getRootProps()}>
                <input {...getInputProps()} />
-               {
-        isDragActive ?
-          <p>Drop the files here ...</p> :
-          <p>Drag 'n' drop some files here, or click to select files</p>
-      }
             <div
                 className={styles["mascota__imagen"]}
                 style={{
