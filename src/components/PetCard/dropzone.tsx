@@ -3,12 +3,9 @@ import { useDropzone } from "react-dropzone";
 import { myPicture } from "hooks";
 import styles from "./index.css";
 
-
 export function MyPetImg(e) {
     const [Picture, setPicture] = myPicture();
     const [selectedImage, setSelectedImage] = useState([]);
-    
-
 
     const onDrop = useCallback((acceptedFiles) => {
         acceptedFiles.forEach((file) => {
@@ -39,17 +36,21 @@ export function MyPetImg(e) {
     return (
         <div className={styles["mascota"]} {...getRootProps()}>
             <div {...getInputProps()} />
-            <div className={styles["mascota__imagen"]}>
-                {selectedImage[0] ? (
-                    <img src={selectedImage[0].preview}></img>
-                ) : e.img ? (
-                    <img src={e.img}></img>
-                ) : (
+            <div
+                className={styles["mascota__imagen"]}
+                style={{
+                    backgroundImage: `url(${
+                        selectedImage[0] ? selectedImage[0].preview : e.img
+                    })`,
+                }}>
+                {!selectedImage[0] ? (
                     <div className={styles["mascota__cargar"]}>
                         AGREGAR FOTO
                     </div>
+                ) : (
+                    <></>
                 )}
             </div>
         </div>
-    )
+    );
 }

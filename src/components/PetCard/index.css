@@ -36,13 +36,28 @@
     border-left-color: #d6b986;
     border-right-color: #f0edbd;
 }
-.mascota__imagen img {
+/* .mascota__imagen img {
     height: 190px;
     min-width: 190px;
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: 50%;
-}
+
+    height: 200px;
+    min-width: 200px;
+    border: 6px solid #ffffff;
+    filter: drop-shadow(3px 4px 8px #a2a2a2);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    margin-bottom:15px;
+    border-left-color: #d6b986;
+    border-right-color: #f0edbd;
+
+
+    
+} */
 
 .mascota__imagen:hover {
     border-color: #e3e3e3;

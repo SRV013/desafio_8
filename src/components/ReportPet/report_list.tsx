@@ -4,7 +4,8 @@ import { LoadingSpinner } from "pages/spinner";
 import styles from "./index.css";
 import { reportList } from "lib/pet";
 import { myPets , myLocation , ResultReportPet } from "hooks";
-
+import { usermyId } from "atoms";
+import { useRecoilState } from "recoil";
 export function ReportForm(e) {
     const [petCurrent, setCurrentPet] = myPets();
     const [Result, setResult] = ResultReportPet();
@@ -13,6 +14,7 @@ export function ReportForm(e) {
     const aroundRadius = e.raduis;
     const [location, setlocation] = myLocation();
     const [isLoading, setIsLoading] = useState(false);
+    const idUser = useRecoilState(usermyId);
     useEffect(() => {
         setIsLoading(true);
         if (!location.lng && !location.lat) {
@@ -22,9 +24,9 @@ export function ReportForm(e) {
                 setlocation({aroundRadius , lng , lat});
             });
         }
-        reportList(e.raduis, location.lat, location.lng).then((pet) => {
-            setpetList(pet);
-            setResult(pet.length);
+        reportList(e.raduis, location.lat, location.lng).then((pet) => {            
+                setpetList(pet);
+                setResult(pet.length);
             setIsLoading(false);
         });
     }, [e.raduis]);

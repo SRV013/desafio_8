@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { Input , TextArea } from "ui/input_text/";
+import { Input, TextArea } from "ui/input_text/";
 import { Button } from "ui/button";
 import { LoadingSpinner } from "pages/spinner";
 import { MapboxSeach } from "components/MapBox/mapbox";
-
 import styles from "./index.css";
 import { petNew } from "lib/pet";
 import { MyPetImg } from "./dropzone";
 import { useNavigate } from "react-router-dom";
-import { myToken, usermyId, pictureId  , mypetLocation} from "atoms";
+import { myToken, usermyId, pictureId, mypetLocation } from "atoms";
 import { useRecoilState } from "recoil";
 import { myModal } from "hooks";
 export function MyPetForm() {
@@ -19,36 +18,36 @@ export function MyPetForm() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [isVisible, setVisible] = myModal();
-
     async function pet(e) {
         e.preventDefault();
         const nombre = e.target.nombre.value;
         const sobremi = e.target.sobremi.value;
-        const ubicacion = "lat: -57.543765 , Lng: -38.012286";
-        const publicada = e.target["publicada"].checked;
-        const perdida = e.target["perdida"].checked;
+        const publicado = e.target["publicada"].checked;
+        const perdido = e.target["perdida"].checked;
         const pictureURL = picture[0];
-        const lat = "-57.543765";
-        const lng = "-38.012286";
+        const lat = coords[0];
+        const lng = coords[1];
         setIsLoading(true);
-        petNew(my_Token, idUser, {
-            nombre,
-            sobremi,
-            publicada,
-            perdida,
-            pictureURL,
-            lat,
-            lng,
-        }).then((e) => {
-            setIsLoading(false);
-            navigate("/pet_list");
-        });
-    
-    
+        if (nombre && sobremi && pictureURL && lat && lng) {
+            petNew(my_Token, idUser, {
+                nombre,
+                sobremi,
+                publicado,
+                perdido,
+                pictureURL,
+                lat,
+                lng,
+            }).then(() => {
+                setIsLoading(false);
+                navigate("/pet_list");
+            });
+        } else {
+            window.alert("Error : datos incompletos ");
+        }
     }
     return (
         <>
-          {isVisible ? <MapboxSeach /> : null}
+            {isVisible ? <MapboxSeach /> : null}
             {isLoading ? (
                 <LoadingSpinner />
             ) : (
@@ -64,7 +63,7 @@ export function MyPetForm() {
                         name="sobremi"
                         placeholder="sobre mi"
                         required></TextArea>
-                       <div
+                    <div
                         className={styles["ubicacion"]}
                         onClick={() => setVisible(!isVisible)}>
                         <img src="../src/assets/ubicacion.png" />

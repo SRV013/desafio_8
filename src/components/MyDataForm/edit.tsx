@@ -26,15 +26,13 @@ export function MyDataForm(p) {
             setIsLoading(false);
         });
     }, []);
-
     const saveUser = (pd) => {
         pd.preventDefault();
         setIsLoading(true);
         const nombre = pd.target.nombre.value;
         const telefono = pd.target.telefono.value;
         const email = pd.target.email.value;
-
-        userSave(my_Token, idUser, {nombre, telefono , email}).then((e) => {
+        userSave(my_Token, idUser, { nombre, telefono, email }).then((e) => {
             setdataUSer(e);
             setIsLoading(false);
         });

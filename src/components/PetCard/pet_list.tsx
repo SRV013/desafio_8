@@ -20,14 +20,15 @@ export function PetForm() {
         setIsLoading(true);
         petList(my_Token, idUser).then((pet) => {
             setpetList(pet);
+            
             setIsLoading(false);
         });
     }, [setCurrentPet]);
+    
     const newPet = () => {
         navigate("/pet_new");
     };
     const editPet = (pets) => {
-        setpicture(pets.pictureURL);
         setCurrentPet(pets);
         navigate("/pet_edit");
     };

@@ -1,6 +1,6 @@
 const API_BASE_URL = "https://m7-mascotas.onrender.com";
 
-export async function petNew(token, idUser, data) {
+export async function petNew(token, idUser, data) {    
     const pet = await fetch(API_BASE_URL + "/mascota", {
         method: "POST",
         headers: {

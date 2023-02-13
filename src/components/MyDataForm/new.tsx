@@ -19,13 +19,12 @@ export function MyDataForm(p) {
             setIsLoading(true);
             userNew(nombre, telefono, email, password).then((e) => {
                 setIsLoading(false);
-                 navigate("/");
+                 navigate("/login");
             });
         } else {
             window.alert("Las contraseñas no coincien !!!");
         }
     };
-
     return (
         <>
             {" "}

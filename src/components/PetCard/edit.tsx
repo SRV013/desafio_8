@@ -7,16 +7,14 @@ import { MyPetImg } from "./dropzone";
 import styles from "./index.css";
 import { MapboxSeach } from "components/MapBox/mapbox";
 import { petCurrentEdit } from "lib/pet";
-import { myToken, usermyId, petSet, pictureId, mypetLocation } from "atoms";
-import { myPets, myModal } from "hooks";
+import { myToken, petSet, pictureId, mypetLocation } from "atoms";
+import { myModal } from "hooks";
 import { useRecoilState } from "recoil";
 export function MyPetForm() {
     const my_Token = useRecoilState(myToken);
-    const idUser = useRecoilState(usermyId);
     const petEdit = useRecoilState(petSet);
     const picture = useRecoilState(pictureId);
     const [coords] = useRecoilState(mypetLocation);
-    const [petCurrent, setCurrentPet] = myPets();
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const [isVisible, setVisible] = myModal();
@@ -26,25 +24,20 @@ export function MyPetForm() {
         const sobremi = e.target.sobremi.value;
         const publicada = e.target["publicada"].checked;
         const perdida = e.target["perdida"].checked;
-        const pictureURL = picture[0];
-        const lat = coords[0];
-        const lng = coords[1];
+        const pictureURL = picture[0] || petEdit[0].pictureURL;
+        const lat = coords[0] || petEdit[0].lat;
+        const lng = coords[1] || petEdit[0].lng;
         if (nombre && sobremi && lat && lng) {
+            const data = picture[0]
+                ? { nombre, sobremi, pictureURL, publicada, perdida, lat, lng }
+                : { nombre, sobremi, publicada, perdida, lat, lng };
             setIsLoading(true);
-            petCurrentEdit(my_Token, petEdit[0].id, {
-                nombre,
-                sobremi,
-                pictureURL,
-                publicada,
-                perdida,
-                lat,
-                lng,
-            }).then((pets) => {
-                setCurrentPet({ id: idUser[0], ...pets });
+            petCurrentEdit(my_Token, petEdit[0].id, data).then(() => {
+             //   setCurrentPet({ id: idUser[0] , ...pets });
                 setIsLoading(false);
-                navigate("/pet_list");
+               navigate("/pet_list");
             });
-        } else {    
+        } else {
             window.alert("Error : datos incompletos ");
         }
     }
@@ -55,7 +48,7 @@ export function MyPetForm() {
                 <LoadingSpinner />
             ) : petEdit[0]?.id ? (
                 <form onSubmit={pet} className={styles["__container"]}>
-                    <MyPetImg img={petEdit[0].pictureURL}/>
+                    <MyPetImg img={petEdit[0].pictureURL} />
                     <Input
                         type={"text"}
                         name={"nombre"}
@@ -72,7 +65,11 @@ export function MyPetForm() {
                         className={styles["ubicacion"]}
                         onClick={() => setVisible(!isVisible)}>
                         <img src="../src/assets/ubicacion.png" />
-                        <a>{coords ? `Modificar` : `Agregar Ubicacion`} </a>
+                        <a>
+                            {petEdit[0]?.lat
+                                ? `Modificar`
+                                : `Agregar Ubicacion`}{" "}
+                        </a>
                     </div>
                     <label>
                         <input
